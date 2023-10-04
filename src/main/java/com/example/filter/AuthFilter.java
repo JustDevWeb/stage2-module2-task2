@@ -21,6 +21,5 @@ public class AuthFilter implements Filter {
         if( session.getAttribute("user") != null ) {
            response.sendRedirect("/login");
         }
-
     }
 }

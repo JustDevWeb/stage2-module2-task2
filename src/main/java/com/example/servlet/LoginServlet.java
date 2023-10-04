@@ -21,9 +21,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             if ( session != null ) {
                 if(  session.getAttribute("user") != null ) {
-                    req.getRequestDispatcher("/login.jsp").forward( req , resp );
+                    resp.sendRedirect("/login.jsp");
                 } else {
-                    req.getRequestDispatcher("/user/hello.jsp").forward( req , resp );
+                    resp.sendRedirect("/user/hello.jsp");
                 }
             }
         } catch (Exception e) {
@@ -46,10 +46,10 @@ public class LoginServlet extends HttpServlet {
                     HttpSession session = req.getSession();
                     if( session != null ) {
                         session.setAttribute("user", login);
-                        req.getRequestDispatcher("/user/hello.jsp").forward(req , resp);
+                        resp.sendRedirect("/user/hello.jsp");
                     }
                 } else  {
-                    req.getRequestDispatcher("/login.jsp").forward(req , resp);
+                    resp.sendRedirect("/login.jsp");
                 }
             }
         } catch (Exception e) {
