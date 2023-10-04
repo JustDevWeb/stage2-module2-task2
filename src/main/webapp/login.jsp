@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-
-</html>
+<!DOCTYPE>
+<html lang = "en">
 <head>
 <title> Registration page</title>
 </head>

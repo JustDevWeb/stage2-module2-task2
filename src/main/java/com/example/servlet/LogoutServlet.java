@@ -8,15 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
+    public final Logger logger = Logger.getLogger( LoginServlet.class.getName() );
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        session.removeAttribute("user");
+        try {
+            HttpSession session = req.getSession();
+            session.removeAttribute("user");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
-        dispatcher.forward(req , resp);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
+            dispatcher.forward(req , resp);
+        } catch ( Exception e ) {
+            logger.info( e.getMessage() );
+        }
     }
 }
